@@ -40,28 +40,25 @@ void test(ListNode* prev){
 
 // (prev, next)
 ListNode* reverseK(ListNode* prev, ListNode* next, int k){
-    ListNode* origin = prev;
-    // if (origin241424 == nullptr){
-    //     cout << "nulll\n";
-    // }
+    ListNode* origin = prev->next;
     ListNode* reverse = next;
     ListNode* temp; ListNode* first = prev->next;
     int count = 0;
     while (count < k){
         // cout << count;
-        cout << origin->val << "-o   "; 
-        cout << reverse->val << "-r   "; 
-        
+        // cout << origin->val << "-o   "; 
+        // cout << reverse->val << "-r   "; 
         temp = origin->next;
+        
         origin->next = reverse;
         reverse = origin;
-        origin = temp;
 
-        cout << origin->val << "-o after\n"; 
+        origin = temp;
+        // cout << origin->val << "-o after\n"; 
         count++;
     }
-    prev->next = origin;
-    printList(origin);
+    prev->next = reverse;
+    // printList(first);
     return first;
 };
 
